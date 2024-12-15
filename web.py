@@ -1,11 +1,14 @@
 from flask import Flask, request
 import detector as detector
 
+from datetime import datetime
+
 app = Flask(__name__)
 
 @app.route('/check', methods=["POST"])
 def handle_request():
-  print("Handle Request")
+  timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+  print(f" {timestamp} Handle request")
   prompt = request.form.get("prompt")
   if not prompt:
     return {"error" : "prompt parameter required" }, 400
