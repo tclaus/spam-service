@@ -11,4 +11,4 @@ ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
 
 EXPOSE 5000
 
-CMD ["gunicorn -w 2 -b 0.0.0.0:5000 web:app"]
+CMD ["gunicorn -w 2 -b 127.0.0.1:5000 web:app"]
